@@ -63,6 +63,13 @@ var cryptocurrencys_listed_database = {
         "withdrawable": 0
         
     },
+    "QBASE": {
+        
+        "deposable": 0,
+        "exchangable": 0,
+        "withdrawable": 0
+        
+    },
     "SPACE": {
         
         "deposable": 0,
