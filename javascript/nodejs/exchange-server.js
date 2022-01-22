@@ -17,32 +17,42 @@ var cryptocurrencys_listed_database = {
     
     "BTC": {
         
-        
+        "deposable": 0,
+        "exchangable": 0,
+        "withdrawable": 0
         
     },
     "LTC": {
         
-        
+        "deposable": 0,
+        "exchangable": 0,
+        "withdrawable": 0
         
     },
     "MARS": {
         
-        
+        "deposable": 0,
+        "exchangable": 0,
+        "withdrawable": 0
         
     },
     "MOON": {
         
-        
+        "deposable": 0,
+        "exchangable": 0,
+        "withdrawable": 0
         
     },
     "SPACE": {
         
-        
+        "deposable": 0,
+        "exchangable": 0,
+        "withdrawable": 0
         
     },
     "XMR": {
         
-        "deposabled": 0,
+        "deposable": 0,
         "exchangable": 0,
         "withdrawable": 0
         
