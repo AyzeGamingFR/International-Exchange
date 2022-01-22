@@ -3,6 +3,15 @@ var http = require("http");
 var socket = require("socket");
 var url = require("url");
 
+var scrypt_a = require("./algos/scrypt.js");
+var sha256_a = require("./algos/sha256.js");
+var sha256d_a = require("./algos/sha256d.js");
+var sha256t_a = require("./algos/sha256t.js");
+var sha256q_a = require("./algos/sha256q.js");
+var randomx_a = require("./algos/randomx.js");
+var x11_a = require("./algos/x11.js");
+var x12_a = require("./algos/x12.js");
+
 var cryptocurrencys_listed = ["BTC", "LTC", "MARS", "MOON", "SPACE", "XMR"];
 var cryptocurrencys_listed_database = {
     
