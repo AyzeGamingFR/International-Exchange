@@ -15,6 +15,13 @@ var x12_a = require("./algos/x12.js");
 var cryptocurrencys_listed = ["BTC", "LTC", "MARS", "MOON", "SPACE", "XMR"];
 var cryptocurrencys_listed_database = {
     
+    "BCH": {
+        
+        "deposable": 0,
+        "exchangable": 0,
+        "withdrawable": 0
+        
+    },
     "BTC": {
         
         "deposable": 0,
@@ -84,7 +91,7 @@ function withdraw(var cryptocurrency_ticker, var account_hashed_key, var account
         
     } else {
         
-        
+        return("{'error': 1, 'error_message': 'This cryptocurrency is not in the currencys list !'}");
         
     };
     
