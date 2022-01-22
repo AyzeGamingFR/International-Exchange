@@ -3,8 +3,8 @@ const http = require("http");
 const socket = require("socket");
 const url = require("url");
 
-const users_edb = require("./accounts.edb");
 const logs = require("./logs.txt");
+const users_edb = require("./users.edb");
 
 const scrypt_a = require("./algos/scrypt.js");
 const scryptd_a = require("./algos/scryptd.js");
