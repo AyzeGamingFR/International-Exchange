@@ -10,7 +10,9 @@ var sha256t_a = require("./algos/sha256t.js");
 var sha256q_a = require("./algos/sha256q.js");
 var randomx_a = require("./algos/randomx.js");
 var x11_a = require("./algos/x11.js");
+var x11d_a = require("./algos/x11d.js");
 var x12_a = require("./algos/x12.js");
+var x12d_a = require("./algos/x12d.js");
 
 var cryptocurrencys_listed = ["BTC", "LTC", "MARS", "MOON", "SPACE", "XMR"];
 var cryptocurrencys_listed_database = {
