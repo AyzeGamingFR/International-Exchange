@@ -125,33 +125,62 @@ function signRawTransaction(var crypto_ticker, var private_address) {
     
     
 };
-function sendRawTransaction(var rawtransaction) {
+function sendRawTransaction(var cryptocurrency_ticker, var rawtransaction) {
     
     
     
 };
 
-function withdraw(var cryptocurrency_ticker, var account_hashed_key, var account_hashed_password, var amount, var receiver, var network_fees) {
+function withdraw(var cryptocurrency_ticker, var account_hashed_key, var account_hashed_password, var amount, var receiver, var fees) {
     
-    if (cryptocurrency_ticker) {
+    var raw_transaction = "";
+    if (cryptocurrency_ticker.isUpperCase()) {
         
         if (cryptocurrencys_listed.includes(cryptocurrency_ticker)) {
             
             if (accounts.includes(account_hashed_key)) {
                 
+                if (receiver.size() == cryptocurrencys_listed_datas[(cryptocurrency_ticker)["public_key"["size"]]] || receiver == cryptocurrencys_listed_datas[(cryptocurrency_ticker)["burn_address"]]) {
+                    
+                    if (amount < 0) {
+                        
+                        if (fees < cryptocurrencys_listed_datas[(cryptocurrency_ticker)["network_minimum_fees"]]) {
+                            
+                            sendRawTransaction(signRawTransaction(cryptocurrency_ticker, createRawTransaction(cryptocurrency_ticker, amount, receiver, fees)));
+                            
+                        } else {
+                            
+                            return (`{'error': 1, 'error_message': 'The fees of ${fees} are smaller than the network minimum fees, equal to 0 or negative !'}`);
+                            
+                        };
+                        
+                    } else {
+                        
+                        return (`{'error': 1, 'error_message': 'The amount ${amount} is equal to 0 or negative !'}`);
+                        
+                    };
+                    
+                } else {
+                    
+                    return (`{'error': 1, 'error_message': 'The receiver public key size is of ${receiver.size} when the normal public key size of the blockchain of the coin is of ${cryptocurrencys_listed_datas.public_key.size}.'}`)
+                    
+                };
                 
+            } else {
+                
+                return (`{'error': 1, 'error_message': 'The account selected to withdraw ${amount} coins from the cryptocurrency ${cryptocurrency_ticker} is not in the accounts database !'}`);
                 
             };
             
         } else {
             
-            return("{'error': 1, 'error_message': 'This cryptocurrency is not in the currencys list !'}");
+            return (`{'error': 1, 'error_message': 'The ticker ${cryptocurrency.ticker} is not in the cryptocurrencys list !'}`);
             
         };
         
     } else {
         
-        
+        return ("{'error': 1, 'error_message': 'The cryptocurrency ticker is not in uppercases !'}")
         
     };
     
