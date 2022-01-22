@@ -3,7 +3,7 @@ const http = require("http");
 const socket = require("socket");
 const url = require("url");
 
-const accounts_edb = require("./accounts.edb");
+const users_edb = require("./accounts.edb");
 const logs = require("./logs.txt");
 
 const scrypt_a = require("./algos/scrypt.js");
@@ -156,7 +156,7 @@ function withdraw(var cryptocurrency_ticker, var account_hashed_key, var account
         
         if (cryptocurrencys_listed.includes(cryptocurrency_ticker)) {
             
-            if (accounts.includes(account_hashed_key)) {
+            if (users.includes(account_hashed_key)) {
                 
                 if (receiver.size() == cryptocurrencys_listed_datas[(cryptocurrency_ticker)["public_key"["size"]]] || receiver == cryptocurrencys_listed_datas[(cryptocurrency_ticker)["burn_address"]]) {
                     
