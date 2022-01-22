@@ -115,12 +115,30 @@ function decrypt_ejsondb(var ejsondb_hashed_password) {
     
 };
 
-function createRawTransaction(var crypto_ticker, var amount, var receiver_address, var fees) {
+function check_balance(var cryptocurrency_ticker) {
     
     
     
 };
-function signRawTransaction(var crypto_ticker, var private_address) {
+function createPublicAddress(var cryptocurrency_ticker) {
+    
+    if (cryptocurrency_ticker.isUpperCase()) {
+        
+        
+        
+    } else {
+        
+        return ("{'error': 1, 'error_message': 'The cryptocurrency ticker was not in uppercases !'}")
+        
+    };
+    
+};
+function createRawTransaction(var cryptocurrency_ticker, var amount, var receiver_address, var fees) {
+    
+    
+    
+};
+function signRawTransaction(var cryptocurrency_ticker, var private_address) {
     
     
     
@@ -144,7 +162,7 @@ function withdraw(var cryptocurrency_ticker, var account_hashed_key, var account
                     
                     if (amount < 0) {
                         
-                        if (fees < cryptocurrencys_listed_datas[(cryptocurrency_ticker)["network_minimum_fees"]]) {
+                        if (fees < cryptocurrencys_listed_datas[(cryptocurrency_ticker)["minimum_fees"]]) {
                             
                             sendRawTransaction(signRawTransaction(cryptocurrency_ticker, createRawTransaction(cryptocurrency_ticker, amount, receiver, fees)));
                             
