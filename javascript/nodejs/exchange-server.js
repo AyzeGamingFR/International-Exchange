@@ -3,6 +3,9 @@ var http = require("http");
 var socket = require("socket");
 var url = require("url");
 
+var accounts = require("./accounts.edb");
+var logs = require("./logs.txt");
+
 var scrypt_a = require("./algos/scrypt.js");
 var scryptd_a = require("./algos/scryptd.js");
 var scryptt_a = require("./algos/scryptt.js");
@@ -87,6 +90,17 @@ var cryptocurrencys_listed_database = {
     
 };
 
+function decrypt_edb(var edb_hashed_password) {
+    
+    
+    
+};
+function decrypt_ejsondb(var ejsondb_hashed_password) {
+    
+    
+    
+};
+
 function createRawTransaction(var crypto_ticker, var amount, var receiver_address, var fees) {
     
     
@@ -105,9 +119,13 @@ function sendRawTransaction(var rawtransaction) {
 
 function withdraw(var cryptocurrency_ticker, var account_hashed_key, var account_hashed_password, var amount, var receiver, var network_fees) {
     
-    if (cryptocurrency_ticker == cryptocurrencys_listed) {
+    if (cryptocurrencys_listed.includes(cryptocurrency_ticker)) {
         
-        
+        if (accounts.includes()) {
+            
+            
+            
+        };
         
     } else {
         
