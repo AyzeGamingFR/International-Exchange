@@ -143,7 +143,11 @@ function createPublicKey(var cryptocurrency_ticker) {
     
 };
 
-function addwithdraw(var cryptocurrency_ticker, var transaction);
+function addwithdraw(var cryptocurrency_ticker, var transaction) {
+    
+    cryptocurrencys_listed["withdraws"].append(`, "": {}`)
+    
+};
 
 function createRawTransaction(var cryptocurrency_ticker, var amount, var receiver_address, var fees) {
     
