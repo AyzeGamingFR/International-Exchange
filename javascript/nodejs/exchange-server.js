@@ -1,7 +1,6 @@
 const fs = require("fs");
 const http = require("http");
 const socket = require("socket.io");
-const url = require("url");
 
 const logs = require("./logs.txt");
 const users_edb = require("./users.edb");
@@ -108,9 +107,32 @@ var cryptocurrencys_listed_database = {
 
 var internetServer = http.createServer(function(req, res) {
     
-    res.writeHead(200, {"Content-Type": "text/html"});
-    res.write(fs.readFile("./pages/home.html"));
-    res.end();
+    if (req.url == "/home") {
+        
+        res.writeHead(200, {"Content-Type": "text/html"});
+        res.write(fs.readFile("./pages/home.html"));
+        
+    } else if (req.url == "/login") {
+        
+        res.writeHead(200, {"Content-Type": "text/html"});
+        res.write(fs.readFile("./pages/login.html"));
+        
+    } else if (req.url == "/register") {
+        
+        res.writeHead(200, {"Content-Type": "text/html"});
+        res.write(fs.readFile("./pages/register.html"));
+        
+    } else if (req.url == "/wallet") {
+        
+        res.writeHead(200, {"Content-Type": "text/html"});
+        res.write(fs.readFile("./pages/wallet.html"));
+        
+    } else if (req.url == "/markets") {
+        
+        res.writeHead(200, {"Content-Type": "text/html"});
+        res.write(fs.readFile("./pages/markets.html"));
+        
+    }
     
 });
 internetServer.listen(config["servers"["web"["port"]]]);
