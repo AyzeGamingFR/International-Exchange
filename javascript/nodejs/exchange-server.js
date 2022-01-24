@@ -104,12 +104,19 @@ var cryptocurrencys_listed_database = {
     
 };
 
+// crypto wallets client and http server functions
+
+var wwwServer = http.createServer({});
+
+
+// exchange functions
+
 function decrypt_edb(var edb_hashed_password) {
     
     
     
 };
-function decrypt_ejsondb(var ejsondb_hashed_password) {
+function encrypt_edb(var edb_hashed_password) {
     
     
     
@@ -120,22 +127,27 @@ function check_balance(var cryptocurrency_ticker) {
     
     
 };
-function createPublicAddress(var cryptocurrency_ticker) {
+function createPublicKey(var cryptocurrency_ticker) {
     
-    if (cryptocurrency_ticker.isUpperCase()) {
+    if (cryptocurrency_ticker.isUpperCase() == true && cryptocurrencys_listed.includes(cryptocurrency_ticker) == true) {
         
-        
+        wallets_client.connect(cryptocurrencys_listed_datas["wallet_ip_address"], cryptocurrencys_listed_datas["wallet_port"]);
+        wallets_client.send("getnewaddress");
+        return (wallets_client.receive())
         
     } else {
         
-        return ("{'error': 1, 'error_message': 'The cryptocurrency ticker was not in uppercases !'}")
+        return ("{'error': 1, 'error_message': 'The cryptocurrency ticker was not in uppercases or is not listed in the exchange !'}")
         
     };
     
 };
+
+function addwithdraw(var cryptocurrency_ticker, var transaction);
+
 function createRawTransaction(var cryptocurrency_ticker, var amount, var receiver_address, var fees) {
     
-    
+    return ("")
     
 };
 function signRawTransaction(var cryptocurrency_ticker, var private_address) {
@@ -145,16 +157,22 @@ function signRawTransaction(var cryptocurrency_ticker, var private_address) {
 };
 function sendRawTransaction(var cryptocurrency_ticker, var rawtransaction) {
     
+    wallets_client.connect(cryptocurrencys_listed[(cryptocurrency_ticker)[""]]);
     
+};
+function sendFrom(var cryptocurrency_ticker, var sender, var receiver, var amount) {
+    
+    wallets_client.connect()
     
 };
 
-function withdraw(var cryptocurrency_ticker, var account_hashed_key, var account_hashed_password, var amount, var receiver, var fees) {
+function withdraw(var cryptocurrency_ticker, var account_hashed_key, var account_hashed_password, var receiver, var amount, var fees) {
     
     var raw_transaction = "";
-    if (cryptocurrency_ticker.isUpperCase() && cryptocurrencys_listed.includes(cryptocurrency_ticker) && users.includes(account_hashed_key) && (receiver.size() == cryptocurrencys_listed_datas[(cryptocurrency_ticker)["public_key"["size"]]] || receiver == cryptocurrencys_listed_datas[(cryptocurrency_ticker)["burn_address"]]) && amount < 0 && fees < cryptocurrencys_listed_datas[(cryptocurrency_ticker)["minimum_fees"]]) {
+    if (cryptocurrency_ticker.isUpperCase() && cryptocurrencys_listed.includes(cryptocurrency_ticker) && users.includes(account_hashed_key) && account_hashed_password == users[(account_hashed_key)["account_hashed_password"]] && (receiver.size() == cryptocurrencys_listed_datas[(cryptocurrency_ticker)["public_key"["size"]]] || receiver == cryptocurrencys_listed_datas[(cryptocurrency_ticker)["burn_address"]]) && amount < 0 && fees < cryptocurrencys_listed_datas[(cryptocurrency_ticker)["minimum_fees"]]) {
         
-        sendRawTransaction(signRawTransaction(cryptocurrency_ticker, createRawTransaction(cryptocurrency_ticker, amount, receiver, fees)));
+        addwithdraw(users[(account_hashed_key)["public_key"]], receiver, amount, fees);
+        return (`A withdraw transaction of ${amount} coins from the address ${users[(account_hashed_key)["public_key"]]} was sent in the withdraws list, waiting for confirmation from the exchange account owner !`)
         
     } else {
         
