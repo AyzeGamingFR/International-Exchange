@@ -1,6 +1,6 @@
 const fs = require("fs");
 const http = require("http");
-const socket = require("socket");
+const socket = require("socket.io");
 const url = require("url");
 
 const logs = require("./logs.txt");
@@ -106,8 +106,16 @@ var cryptocurrencys_listed_database = {
 
 // crypto wallets client and http server functions
 
-var wwwServer = http.createServer({});
+var internetServer = http.createServer(function(req, res) {
+    
+    res.writeHead(200, {"Content-Type": "text/html"});
+    res.write(fs.readFile("./pages/home.html"));
+    res.end();
+    
+});
+internetServer.listen(config["servers"["web"["port"]]]);
 
+var wallets_client = socket.Socket();
 
 // exchange functions
 
@@ -143,9 +151,14 @@ function createPublicKey(var cryptocurrency_ticker) {
     
 };
 
-function addwithdraw(var cryptocurrency_ticker, var transaction) {
+function addwithdraw(var cryptocurrency_ticker, var sender, var receiver, var amount, var fees) {
     
-    cryptocurrencys_listed["withdraws"].append(`, "": {}`)
+    cryptocurrencys_listed["withdraws"].append(`, "${cryptocurrencys_listed["withdraws"].size() +1}": {"from": "${transaction["sender"]}"}`)
+    
+};
+function confirmedwithdraw(var withdraw_id) {
+    
+    
     
 };
 
@@ -175,8 +188,8 @@ function withdraw(var cryptocurrency_ticker, var account_hashed_key, var account
     var raw_transaction = "";
     if (cryptocurrency_ticker.isUpperCase() && cryptocurrencys_listed.includes(cryptocurrency_ticker) && users.includes(account_hashed_key) && account_hashed_password == users[(account_hashed_key)["account_hashed_password"]] && (receiver.size() == cryptocurrencys_listed_datas[(cryptocurrency_ticker)["public_key"["size"]]] || receiver == cryptocurrencys_listed_datas[(cryptocurrency_ticker)["burn_address"]]) && amount < 0 && fees < cryptocurrencys_listed_datas[(cryptocurrency_ticker)["minimum_fees"]]) {
         
-        addwithdraw(users[(account_hashed_key)["public_key"]], receiver, amount, fees);
-        return (`A withdraw transaction of ${amount} coins from the address ${users[(account_hashed_key)["public_key"]]} was sent in the withdraws list, waiting for confirmation from the exchange account owner !`)
+        addwithdraw(cryptocurrency_ticker, users[(account_hashed_key)["public_key"]], receiver, amount, fees);
+        return (`A withdraw transaction of ${amount} coins from the address ${users[(account_hashed_key)["public_key"]]} was added in the withdraws list, waiting for confirmation from the account owner !`)
         
     } else {
         
