@@ -237,11 +237,6 @@ function sendRawTransaction(var cryptocurrency_ticker, var rawtransaction) {
     wallets_client.connect(cryptocurrencys_listed[(cryptocurrency_ticker)[""]]);
     
 };
-function sendFrom(var cryptocurrency_ticker, var sender, var receiver, var amount) {
-    
-    wallets_client.connect()
-    
-};
 
 function withdraw(var cryptocurrency_ticker, var account_hashed_key, var account_hashed_password, var receiver, var amount, var fees) {
     
@@ -255,6 +250,61 @@ function withdraw(var cryptocurrency_ticker, var account_hashed_key, var account
         
         
         return (`{'error': 1, 'error_message': 'Error, when trying to withdraw some coins !`)
+        
+    };
+    
+};
+function loadBalance(var ticker, var pubkey) {
+    
+    if (ticker == "ANTS" && pubkey.size() == config.ants.pubkeysize) {
+        
+        ants_wallet.send(`getbalance ${pubkey}`);
+        return (ants_wallet.recv())
+        
+    } else if (ticker == "BCH" && pubkey.size() == config.bch.pubkeysize) {
+        
+        bch_wallet.send(`getbalance ${pubkey}`);
+        return (bch_wallet.recv())
+        
+    } else if (ticker == "BTC" && pubkey.size() == config.btc.pubkeysize) {
+        
+        btc_wallet.send(`getbalance ${pubkey}`);
+        return (btc_wallet.recv())
+        
+    } else if (ticker == "DASH" && pubkey.size() == config.dash.pubkeysize) {
+        
+        dash_wallet.send(`getbalance ${pubkey}`);
+        return (dash_wallet.recv())
+        
+    } else if (ticker == "DGB" && pubkey.size() == config.dgb.pubkeysize) {
+        
+        dgb_wallet.send(`getbalance ${pubkey}`);
+        return (dgb_wallet.recv())
+        
+    } else if (ticker == "DOGE" && pubkey.size() == config.doge.pubkeysize) {
+        
+        doge_wallet.send(`getbalance ${pubkey}`);
+        return (doge_wallet.recv())
+        
+    } else if (ticker == "LTC" && pubkey.size() == config.ltc.pubkeysize) {
+        
+        ltc_wallet.send(`getbalance ${pubkey}`);
+        return (ltc_wallet.recv())
+        
+    } else if (ticker == "MARS" && pubkey.size() == config.mars.pubkeysize) {
+        
+        mars_wallet.send(`getbalance ${pubkey}`);
+        return (mars_wallet.recv())
+        
+    } else if (ticker == "MOON" && pubkey.size() == config.moon.pubkeysize) {
+        
+        moon_wallet.send(`getbalance ${pubkey}`);
+        return (moon_wallet.recv())
+        
+    } else if (ticker == "XMR" && pubkey.size() == config.xmr.pubkeysize) {
+        
+        xmr_wallet.send(`getbalance ${pubkey}`);
+        return (xmr_wallet.recv())
         
     };
     
