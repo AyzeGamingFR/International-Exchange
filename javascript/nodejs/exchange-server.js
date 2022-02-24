@@ -27,9 +27,16 @@ const x13d_a = require("./algos/x13d.js");
 const x13t_a = require("./algos/x13t.js");
 const x13q_a = require("./algos/x13q.js");
 
-var cryptocurrencys_listed = ["BTC", "LTC", "MARS", "MOON", "SPACE", "XMR"];
+var cryptocurrencys_listed = ["ANTS", "BCH", "BTC", "DASH", "DGB", "DOGE", "HTH", "LTC", "MARS", "MOON", "SPACE", "XMR"];
 var cryptocurrencys_listed_database = {
     
+    "ANTS": {
+        
+        "deposable": 0,
+        "exchangeable": 0,
+        "withdrawable": 0
+        
+    },
     "BCH": {
         
         "deposable": 0,
@@ -48,6 +55,13 @@ var cryptocurrencys_listed_database = {
         
         "deposable": 0,
         "exchangable": 0,
+        "withdrawable": 0
+        
+    },
+    "DGB": {
+        
+        "deposable": 0,
+        "exchangeable": 0,
         "withdrawable": 0
         
     },
@@ -73,6 +87,13 @@ var cryptocurrencys_listed_database = {
         
     },
     "MOON": {
+        
+        "deposable": 0,
+        "exchangable": 0,
+        "withdrawable": 0
+        
+    },
+    "MIN": {
         
         "deposable": 0,
         "exchangable": 0,
@@ -202,9 +223,19 @@ function createRawTransaction(var ticker, var sender, var amount, var receiver, 
         tx += fees;
         return (tx)
         
-    } else if (ticker == "DASH") {
+    } else if (ticker == "DASH" && sender.size() == config.dash.pubkeysize && receiver.size() == config.dash.pubkeysize && fees >= config.dash.minfees) {
         
+        tx += sender;
+        tx += receiver;
+        tx += fees;
+        return (tx)
         
+    } else if (ticker == "DGB" && sender.size() == config.dgb.pubkeysize && receiver.size() == config.dgb.pubkeysize && fees >= config.dgb.minfees) {
+        
+        tx += sender;
+        tx += receiver;
+        tx += fees;
+        return (tx)
         
     } else if (ticker == "LTC" && sender.size() == config.ltc.pubkeysize && receiver.size() == config.ltc.pubkeysize && fees >= config.ltc.minfees) {
         
@@ -222,7 +253,10 @@ function createRawTransaction(var ticker, var sender, var amount, var receiver, 
         
     } else if (ticker == "MOON" && sender.size() == config.moon.pubkeysize && receiver.size() == config.moon.pubkeysize && fees >= config.moon.minfees) {
         
-        
+        tx += sender;
+        tx += receiver;
+        tx += fees;
+        return (tx)
         
     };
     
