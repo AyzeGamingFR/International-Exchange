@@ -184,14 +184,52 @@ function confirmedwithdraw(var withdraw_id) {
     
 };
 
-function createRawTransaction(var cryptocurrency_ticker, var amount, var receiver_address, var fees) {
+function createRawTransaction(var ticker, var sender, var amount, var receiver, var fees) {
     
-    return ("")
+    var tx = "";
+    
+    if (ticker == "ANTS" && sender.size() == config.ants.pubkeysize && receiver.size() == config.ants.pubkeysize && fees >= config.ants.minfees) {
+        
+        tx += sender;
+        tx += receiver;
+        tx += fees
+        return (tx)
+        
+    } else if (ticker == "BTC" && sender.size() == config.btc.pubkeysize && receiver.size() == config.btc.pubkeysize && fees >= config.btc.minfees) {
+        
+        tx += sender;
+        tx += receiver;
+        tx += fees;
+        return (tx)
+        
+    } else if (ticker == "DASH") {
+        
+        
+        
+    } else if (ticker == "LTC" && sender.size() == config.ltc.pubkeysize && receiver.size() == config.ltc.pubkeysize && fees >= config.ltc.minfees) {
+        
+        tx += sender;
+        tx += receiver;
+        tx += fees;
+        return (tx)
+        
+    } else if (ticker == "MARS" && sender.size() == config.mars.pubkeysize && receiver.size() == config.mars.pubkeysize && fees >= config.mars.minfees) {
+        
+        tx += sender;
+        tx += receiver;
+        tx += fees;
+        return (tx)
+        
+    } else if (ticker == "MOON" && sender.size() == config.moon.pubkeysize && receiver.size() == config.moon.pubkeysize && fees >= config.moon.minfees) {
+        
+        
+        
+    };
     
 };
-function signRawTransaction(var cryptocurrency_ticker, var private_address) {
+function signRawTransaction(var cryptocurrency_ticker, var private_address, var tx) {
     
-    
+    return ();
     
 };
 function sendRawTransaction(var cryptocurrency_ticker, var rawtransaction) {
@@ -208,10 +246,10 @@ function sendFrom(var cryptocurrency_ticker, var sender, var receiver, var amoun
 function withdraw(var cryptocurrency_ticker, var account_hashed_key, var account_hashed_password, var receiver, var amount, var fees) {
     
     var raw_transaction = "";
-    if (cryptocurrency_ticker.isUpperCase() && cryptocurrencys_listed.includes(cryptocurrency_ticker) && users.includes(account_hashed_key) && account_hashed_password == users[(account_hashed_key)["account_hashed_password"]] && (receiver.size() == cryptocurrencys_listed_datas[(cryptocurrency_ticker)["public_key"["size"]]] || receiver == cryptocurrencys_listed_datas[(cryptocurrency_ticker)["burn_address"]]) && amount < 0 && fees < cryptocurrencys_listed_datas[(cryptocurrency_ticker)["minimum_fees"]]) {
+    if (cryptocurrency_ticker.isUpperCase() == 1 && cryptocurrencys_listed.includes(cryptocurrency_ticker) && users.includes(account_hashed_key) && account_hashed_password == users.(account_hashed_key).account_hashed_password && receiver.size() == cryptocurrencys_listed_datas.(cryptocurrency_ticker).public_key.size || receiver == cryptocurrencys_listed_datas.(cryptocurrency_ticker).burn_address && amount > 0 && fees > cryptocurrencys_listed_datas.(cryptocurrency_ticker).minimum_fees) {
         
-        addwithdraw(cryptocurrency_ticker, users[(account_hashed_key)["public_key"]], receiver, amount, fees);
-        return (`A withdraw transaction of ${amount} coins from the address ${users[(account_hashed_key)["public_key"]]} was added in the withdraws list, waiting for confirmation from the account owner !`)
+        addwithdraw(cryptocurrency_ticker, users.(account_hashed_key).public_key, receiver, amount, fees);
+        return (`A withdraw transaction of ${amount} coins from the address ${users.(account_hashed_key).public_key} was added in the withdraws list, waiting for confirmation from the account owner !`)
         
     } else {
         
