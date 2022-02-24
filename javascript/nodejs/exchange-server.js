@@ -286,6 +286,16 @@ function loadBalance(var ticker, var pubkey) {
         doge_wallet.send(`getbalance ${pubkey}`);
         return (doge_wallet.recv())
         
+    } else if (ticker == "HTH" && pubkey.size() == config.hth.pubkeysize) {
+        
+        hth_wallet.send(`getbalance ${pubkey}`);
+        return (hth_wallet.recv())
+        
+    } else if (ticker == "LONG" && pubkey.size() == config.long.pubkeysize) {
+        
+        long_wallet.send(`getbalance ${pubkey}`);
+        return (long_wallet.recv())
+        
     } else if (ticker == "LTC" && pubkey.size() == config.ltc.pubkeysize) {
         
         ltc_wallet.send(`getbalance ${pubkey}`);
@@ -296,10 +306,35 @@ function loadBalance(var ticker, var pubkey) {
         mars_wallet.send(`getbalance ${pubkey}`);
         return (mars_wallet.recv())
         
+    } else if (ticker == "MEGA" && pubkey.size() == config.mega.pubkeysize) {
+        
+        mega_wallet.send(`getbalance ${pubkeysize}`);
+        return (mega_wallet.recv())
+        
+    } else if (ticker == "MIN" && pubkey.size() == config.min.pubkeysize) {
+        
+        min_wallet.send(`getbalance ${pubkeysize}`);
+        return (min_wallet.recv())
+        
     } else if (ticker == "MOON" && pubkey.size() == config.moon.pubkeysize) {
         
         moon_wallet.send(`getbalance ${pubkey}`);
         return (moon_wallet.recv())
+        
+    } else if (ticker == "NEO" && pubkey.size() == config.neo.pubkeysize) {
+        
+        neo_wallet.send(`getbalance ${pubkey}`);
+        return (neo_wallet.recv())
+        
+    } else if (ticker == "NEURA" && pubkey.size() == config.neura.pubkeysize) {
+        
+        neura_wallet.send(`getbalance ${pubkey}`);
+        return (neura_wallet.recv())
+        
+    } else if (ticker == "XEM" && pubkey.size() == config.xem.pubkeysize) {
+        
+        xem_wallet.send(`getbalance ${pubkey}`);
+        return (xem_wallet.recv())
         
     } else if (ticker == "XMR" && pubkey.size() == config.xmr.pubkeysize) {
         
