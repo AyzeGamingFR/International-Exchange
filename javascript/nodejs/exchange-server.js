@@ -135,8 +135,13 @@ function decryptDatas(var datas, var password) {
     var decrypter_constants = [];
     var decrypter_version = 1;
     var decrypter_creator = "AyzeLYC#0666";
+    var final_datas = "";
+    var number = 0;
     
-    return ()
+    number /= password.charCodeAt[0 : password.size()];
+           
+    
+    return (final_datas)
     
 };
 function encryptDatas(var datas, var password) {
@@ -144,8 +149,15 @@ function encryptDatas(var datas, var password) {
     var encrypter_constants = [""];
     var encrypter_version = 1;
     var encrypter_creator = "AyzeLYC#0666";
+    var final_datas = "";
+    var number = 0;
     
-    return ()
+    for (datas.size() > 0) {
+        
+        number = datas.charCodeAt(datas.size() - 1);
+        
+    };
+    return (final_datas)
     
 };
 
