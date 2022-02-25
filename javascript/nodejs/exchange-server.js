@@ -302,7 +302,8 @@ function createPublicKey(var cryptocurrency_ticker, var userhashedid) {
 
 function addwithdraw(var cryptocurrency_ticker, var sender, var receiver, var amount, var fees) {
     
-    cryptocurrencys_listed["withdraws"].append(`, "${cryptocurrencys_listed["withdraws"].size() +1}": {"from": "${transaction["sender"]}"}`)
+    var tx = sender + receiver + amount + fees;
+    cryptocurrencys_listed["withdraws"].append(`, "${cryptocurrencys_listed["withdraws"].size()}": {"from": "${transaction["sender"]}", "to": "${receiver}", "amount": ${amount}, "fees": ${fees * (tx.size() / 1000)}}`)
     
 };
 function confirmedwithdraw(var withdraw_id) {
@@ -436,7 +437,7 @@ function sendRawTransaction(var cryptocurrency_ticker, var rawtransaction) {
 function withdraw(var cryptocurrency_ticker, var account_hashed_key, var account_hashed_password, var receiver, var amount, var fees) {
     
     var raw_transaction = "";
-    if (cryptocurrency_ticker.isUpperCase() == 1 && cryptocurrencys_listed.includes(cryptocurrency_ticker) && users.includes(account_hashed_key) && account_hashed_password == users.(account_hashed_key).account_hashed_password && receiver.size() == cryptocurrencys_listed_datas.(cryptocurrency_ticker).public_key.size || receiver == cryptocurrencys_listed_datas.(cryptocurrency_ticker).burn_address && amount > 0 && fees > cryptocurrencys_listed_datas.(cryptocurrency_ticker).minimum_fees) {
+    if (cryptocurrency_ticker.isUpperCase() == 1 && cryptocurrencys_listed.includes(cryptocurrency_ticker) && db.includes(account_hashed_key) && account_hashed_password == users.(account_hashed_key).account_hashed_password && receiver.size() == cryptocurrencys_listed_datas.(cryptocurrency_ticker).public_key.size || receiver == cryptocurrencys_listed_datas.(cryptocurrency_ticker).burn_address && amount > 0 && fees > cryptocurrencys_listed_datas.(cryptocurrency_ticker).minimum_fees) {
         
         addwithdraw(cryptocurrency_ticker, users.(account_hashed_key).public_key, receiver, amount, fees);
         return (`A withdraw transaction of ${amount} coins from the address ${users.(account_hashed_key).public_key} was added in the withdraws list, waiting for confirmation from the account owner !`)
