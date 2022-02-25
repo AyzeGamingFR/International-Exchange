@@ -72,6 +72,20 @@ var cryptocurrencys_listed_database = {
         "withdrawable": 0
         
     },
+    "HTH": {
+        
+        "deposable": 0,
+        "exchangeable": 0,
+        "withdrawable": 0
+        
+    },
+    "LONG": {
+        
+        "deposable": 0,
+        "exchangeable": 0,
+        "withdrawable": 0
+        
+    },
     "LTC": {
         
         "deposable": 0,
@@ -107,6 +121,20 @@ var cryptocurrencys_listed_database = {
         "withdrawable": 0
         
     },
+    "NEO": {
+        
+        "deposable": 0,
+        "exchangeable": 0,
+        "withdrawable": 0
+        
+    },
+    "NEURA": {
+        
+        "deposable": 0,
+        "exchangeable": 0,
+        "withdrawable": 0
+        
+    },
     "QBASE": {
         
         "deposable": 0,
@@ -118,6 +146,13 @@ var cryptocurrencys_listed_database = {
         
         "deposable": 0,
         "exchangable": 0,
+        "withdrawable": 0
+        
+    },
+    "XEM": {
+        
+        "deposable": 0,
+        "exchangeable": 0,
         "withdrawable": 0
         
     },
