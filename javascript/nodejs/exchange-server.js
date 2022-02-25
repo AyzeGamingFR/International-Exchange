@@ -86,6 +86,13 @@ var cryptocurrencys_listed_database = {
         "withdrawable": 0
         
     },
+    "MEGA": {
+        
+        "deposable": 0,
+        "exchangeable": 0,
+        "withdrawable": 0
+        
+    },
     "MOON": {
         
         "deposable": 0,
@@ -121,6 +128,24 @@ var cryptocurrencys_listed_database = {
         "withdrawable": 0
         
     }
+    
+};
+function decryptDatas(var datas, var password) {
+    
+    var decrypter_constants = [];
+    var decrypter_version = 1;
+    var decrypter_creator = "AyzeLYC#0666";
+    
+    return ()
+    
+};
+function encryptDatas(var datas, var password) {
+    
+    var encrypter_constants = [""];
+    var encrypter_version = 1;
+    var encrypter_creator = "AyzeLYC#0666";
+    
+    return ()
     
 };
 
@@ -178,13 +203,41 @@ function check_balance(var cryptocurrency_ticker) {
     
     
 };
-function createPublicKey(var cryptocurrency_ticker) {
+function createPublicKey(var cryptocurrency_ticker, var userhashedid) {
     
-    if (cryptocurrency_ticker.isUpperCase() == true && cryptocurrencys_listed.includes(cryptocurrency_ticker) == true) {
+    if (cryptocurrency_ticker.isUpperCase() == true && cryptocurrencys_listed.includes(cryptocurrency_ticker) == true && db.includes(userhashedid)) {
         
-        wallets_client.connect(cryptocurrencys_listed_datas["wallet_ip_address"], cryptocurrencys_listed_datas["wallet_port"]);
-        wallets_client.send("getnewaddress");
-        return (wallets_client.receive())
+        if (cryptocurrency_ticker == "ANTS" && db.find(userhashedid).ants.address.pubkey == encryptDatas("NONE", dbPassword)) {
+            
+            fireants_wallet.send("getnewaddress");
+            return (fireants_wallet.recv())
+            
+        } else if (cryptocurrency_ticker == "BCH" && db.find(userhashedid).bch.address.pubkey == encryptDatas("NONE", dbPassword)) {
+            
+            bitcoincash_wallet.send("getnewaddress");
+            return (bitcoincash_wallet.recv())
+            
+        } else if (cryptocurrency_ticker == "BTC" && db.find(userhashedid).btc.address.pubkey == encryptDatas("NONE", dbPassword)) {
+            
+            bitcoin_wallet.send("getnewaddress");
+            return (bitcoin_wallet.recv())
+            
+        } else if (cryptocurrency_ticker == "DASH" && db.find(userhashedid).dash.address.pubkey == encryptDatas("NONE", dbPassword)) {
+            
+            dash_wallet.send("getnewaddress");
+            return (dash_wallet.recv())
+            
+        } else if (cryptocurrency_ticker == "DGB" && db.find(userhashedid).dgb.address.pubkey == encryptDatas("NONE", dbPassword)) {
+            
+            digibyte_wallet.send("getnewaddress");
+            return (digibyte_wallet.recv())
+            
+        } else if (cryptocurrency_ticker == "DOGE" && db.find(userhashedid).doge.address.pubkey == encryptDatas("NONE", dbPassword)) {
+            
+            dogecoin_wallet.send("getnewaddress");
+            return (dogecoin_wallet.recv())
+            
+        } else if (cryptocurrency_ticker == "" && db.find(userhashedid) == encryptDatas("NONE", dbPassword));
         
     } else {
         
