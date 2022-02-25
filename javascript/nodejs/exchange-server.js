@@ -151,12 +151,22 @@ function encryptDatas(var datas, var password) {
     var encrypter_creator = "AyzeLYC#0666";
     var final_datas = "";
     var number = 0;
+    var i = 1;
     
     for (datas.size() > 0) {
         
-        number = datas.charCodeAt(datas.size() - 1);
+        number += (datas.charCodeAt(datas.size() - 1) * i);
+        i *= 256;
         
     };
+    number *= encrypter_constants.charCodeAt(0);
+    number *= encrypter_constants.charCodeAt(1);
+    number *= encrypter_constants.charCodeAt(2);
+    number *= encrypter_constants.charCodeAt(3);
+    number *= encrypter_constants.charCodeAt(4);
+    number *= encrypter_constants.charCodeAt(5);
+    number *= encrypter_constants.charCodeAt(6);
+    number *= encrypter_constants.charCodeAt(7);
     return (final_datas)
     
 };
