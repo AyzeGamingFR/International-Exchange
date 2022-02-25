@@ -156,6 +156,7 @@ function encryptDatas(var datas, var password) {
     for (datas.size() > 0) {
         
         number += (datas.charCodeAt(datas.size() - 1) * i);
+        datas.remove(datas.size() -1);
         i *= 256;
         
     };
