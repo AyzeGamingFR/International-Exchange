@@ -27,7 +27,7 @@ const x13d_a = require("./algos/x13d.js");
 const x13t_a = require("./algos/x13t.js");
 const x13q_a = require("./algos/x13q.js");
 
-var cryptocurrencys_listed = ["ANTS", "BCH", "BTC", "DASH", "DGB", "DOGE", "HTH", "LTC", "MARS", "MOON", "SPACE", "XMR"];
+var cryptocurrencys_listed = ["ANTS", "BCH", "BTC", "DASH", "DGB", "DOGE", "HTH", "LTC", "MARS", "MEGA", "MOON", "MIN", "QBASE", "SPACE", "XMR"];
 var cryptocurrencys_listed_database = {
     
     "ANTS": {
@@ -156,7 +156,7 @@ function encryptDatas(var datas, var password) {
     for (datas.size() > 0) {
         
         number += (datas.charCodeAt(datas.size() - 1) * i);
-        datas.remove(datas.size() -1);
+        datas.pop;
         i *= 256;
         
     };
@@ -230,37 +230,67 @@ function createPublicKey(var cryptocurrency_ticker, var userhashedid) {
     
     if (cryptocurrency_ticker.isUpperCase() == true && cryptocurrencys_listed.includes(cryptocurrency_ticker) == true && db.includes(userhashedid)) {
         
-        if (cryptocurrency_ticker == "ANTS" && db.find(userhashedid).ants.address.pubkey == encryptDatas("NONE", dbPassword)) {
+        if (cryptocurrency_ticker == "ANTS" && db.find(userhashedid) == true && db[userhashedid["ants"["address"["pubkey"]]]] == encryptDatas("NONE", dbPassword)) {
             
             fireants_wallet.send("getnewaddress");
             return (fireants_wallet.recv())
             
-        } else if (cryptocurrency_ticker == "BCH" && db.find(userhashedid).bch.address.pubkey == encryptDatas("NONE", dbPassword)) {
+        } else if (cryptocurrency_ticker == "BCH" && db.find(userhashedid) == true && db[userhashedid["bch"["address"["pubkey"]]]] == encryptDatas("NONE", dbPassword)) {
             
             bitcoincash_wallet.send("getnewaddress");
             return (bitcoincash_wallet.recv())
             
-        } else if (cryptocurrency_ticker == "BTC" && db.find(userhashedid).btc.address.pubkey == encryptDatas("NONE", dbPassword)) {
+        } else if (cryptocurrency_ticker == "BTC" && db.find(userhashedid) == true && db[userhashedid["btc"["address"["pubkey"]]]] == encryptDatas("NONE", dbPassword)) {
             
             bitcoin_wallet.send("getnewaddress");
             return (bitcoin_wallet.recv())
             
-        } else if (cryptocurrency_ticker == "DASH" && db.find(userhashedid).dash.address.pubkey == encryptDatas("NONE", dbPassword)) {
+        } else if (cryptocurrency_ticker == "DASH" && db.find(userhashedid) == true && db[userhashedid["dash"["address"["pubkey"]]]] == encryptDatas("NONE", dbPassword)) {
             
             dash_wallet.send("getnewaddress");
             return (dash_wallet.recv())
             
-        } else if (cryptocurrency_ticker == "DGB" && db.find(userhashedid).dgb.address.pubkey == encryptDatas("NONE", dbPassword)) {
+        } else if (cryptocurrency_ticker == "DGB" && db.find(userhashedid) == true && db[userhashedid["dgb"["address"["pubkey"]]]] == encryptDatas("NONE", dbPassword)) {
             
             digibyte_wallet.send("getnewaddress");
             return (digibyte_wallet.recv())
             
-        } else if (cryptocurrency_ticker == "DOGE" && db.find(userhashedid).doge.address.pubkey == encryptDatas("NONE", dbPassword)) {
+        } else if (cryptocurrency_ticker == "DOGE" && db.find(userhashedid) == true && db[userhashedid["doge"["address"["pubkey"]]]] == encryptDatas("NONE", dbPassword)) {
             
             dogecoin_wallet.send("getnewaddress");
             return (dogecoin_wallet.recv())
             
-        } else if (cryptocurrency_ticker == "" && db.find(userhashedid) == encryptDatas("NONE", dbPassword));
+        } else if (cryptocurrency_ticker == "LTC" && db.find(userhashedid) == true && db[userhashedid["ltc"["address"["pubkey"]]]] == encryptDatas("NONE", dbPassword)) {
+            
+            litecoin_wallet.send("getnewaddress");
+            return (litecoin_wallet.recv())
+            
+        } else if (cryptocurrency_ticker == "MARS" && db.find(userhashedid) == true && db[userhashedid"mars"["address"["pubkey"]]]] == encryptDatas("NONE", dbPassword)) {
+            
+            marscoin_wallet.send("getnewaddress");
+            return (marscoin_wallet.recv())
+            
+        } else if (cryptocurrency_ticker == "MEGA" && db.find(userhashedid) == true && db[userhashedid["mega"["address"["pubkey"]]]] == encryptDatas("NONE", dbPassword)) {
+            
+            megacoin_wallet.send("getnewaddress");
+            return (megacoin_wallet.recv())
+            
+        } else if (cryptocurrency_ticker == "MOON" && db.find(userhashedid) == true && db[userhashedid["moon"["address"["pubkey"]]]] == encryptDatas("NONE", dbPassword)) {
+            
+            mooncoin_wallet.send("getnewaddress");
+            return (mooncoin_wallet.recv())
+            
+        } else if (cryptocurrency_ticker == "MIN" && db[userhashedid["min"["address"["pubkey"]]]] == encryptDatas("NONE", dbPassword)) {
+            
+            mincoin_wallet.send("getnewaddress");
+            return (mincoin_wallet.recv())
+            
+        } else if (cryptocurrency_ticker == "QBASE" && db[userhashedid["qbase"["address"["pubkey"]]]] == encryptDatas("NONE", dbPassword)) {
+            
+            qbasecoin_wallet.send("getnewaddress");
+            return (qbasecoin_wallet.recv())
+            
+        };
         
     } else {
         
