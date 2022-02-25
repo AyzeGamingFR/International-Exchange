@@ -315,53 +315,108 @@ function createRawTransaction(var ticker, var sender, var amount, var receiver, 
     
     var tx = "";
     
-    if (ticker == "ANTS" && sender.size() == config.ants.pubkeysize && receiver.size() == config.ants.pubkeysize && fees >= config.ants.minfees) {
+    if (ticker == "ANTS" && sender.size() == config.ants.pubkeysize && receiver.size() == config.ants.pubkeysize && amount > 0 && fees >= config.ants.minfees) {
         
-        tx += sender;
-        tx += receiver;
-        tx += fees
+        tx.join(sender);
+        tx.join(receiver);
+        tx.join(amount);
+        tx.join(fees);
         return (tx)
         
-    } else if (ticker == "BTC" && sender.size() == config.btc.pubkeysize && receiver.size() == config.btc.pubkeysize && fees >= config.btc.minfees) {
+    } else if (ticker == "BCH" && sender.size() == config.bch.pubkeysize && receiver.size() == config.bch.pubkeysize && amount > 0 && fees >= config.bch.minfees) {
         
-        tx += sender;
-        tx += receiver;
-        tx += fees;
+        tx.join(sender);
+        tx.join(receiver);
+        tx.join(amount);
+        tx.join(fees);
         return (tx)
         
-    } else if (ticker == "DASH" && sender.size() == config.dash.pubkeysize && receiver.size() == config.dash.pubkeysize && fees >= config.dash.minfees) {
+    } else if (ticker == "BTC" && sender.size() == config.btc.pubkeysize && receiver.size() == config.btc.pubkeysize && amount > 0 && fees >= config.btc.minfees) {
         
-        tx += sender;
-        tx += receiver;
-        tx += fees;
+        tx.join(sender);
+        tx.join(receiver);
+        tx.join(amount);
+        tx.join(fees);
         return (tx)
         
-    } else if (ticker == "DGB" && sender.size() == config.dgb.pubkeysize && receiver.size() == config.dgb.pubkeysize && fees >= config.dgb.minfees) {
+    } else if (ticker == "DASH" && sender.size() == config.dash.pubkeysize && receiver.size() == config.dash.pubkeysize && amount > 0 && fees >= config.dash.minfees) {
         
-        tx += sender;
-        tx += receiver;
-        tx += fees;
+        tx.join(sender);
+        tx.join(receiver);
+        tx.join(amount);
+        tx.join(fees);
         return (tx)
         
-    } else if (ticker == "LTC" && sender.size() == config.ltc.pubkeysize && receiver.size() == config.ltc.pubkeysize && fees >= config.ltc.minfees) {
+    } else if (ticker == "DGB" && sender.size() == config.dgb.pubkeysize && receiver.size() == config.dgb.pubkeysize && amount > 0 && fees >= config.dgb.minfees) {
         
-        tx += sender;
-        tx += receiver;
-        tx += fees;
+        tx.join(sender);
+        tx.join(receiver);
+        tx.join(amount);
+        tx.join(fees);
         return (tx)
         
-    } else if (ticker == "MARS" && sender.size() == config.mars.pubkeysize && receiver.size() == config.mars.pubkeysize && fees >= config.mars.minfees) {
+    } else if (ticker == "LTC" && sender.size() == config.ltc.pubkeysize && receiver.size() == config.ltc.pubkeysize && amount > 0 && fees >= config.ltc.minfees) {
         
-        tx += sender;
-        tx += receiver;
-        tx += fees;
+        tx.join(sender);
+        tx.join(receiver);
+        tx.join(amount);
+        tx.join(fees);
         return (tx)
         
-    } else if (ticker == "MOON" && sender.size() == config.moon.pubkeysize && receiver.size() == config.moon.pubkeysize && fees >= config.moon.minfees) {
+    } else if (ticker == "MARS" && sender.size() == config.mars.pubkeysize && receiver.size() == config.mars.pubkeysize && amount > 0 && fees >= config.mars.minfees) {
         
-        tx += sender;
-        tx += receiver;
-        tx += fees;
+        tx.join(sender);
+        tx.join(receiver);
+        tx.join(amount);
+        tx.join(fees);
+        return (tx)
+        
+    } else if (ticker == "MEGA" && sender.size() == config.mega.pubkeysize && receiver.size() == config.mega.pubkeysize && amount > 0 && fees >= config.mega.minfees) {
+        
+        tx.join(sender);
+        tx.join(receiver);
+        tx.join(amount);
+        tx.join(fees);
+        return (tx)
+        
+    } else if (ticker == "MOON" && sender.size() == config.moon.pubkeysize && receiver.size() == config.moon.pubkeysize && amount > 0 && fees >= config.moon.minfees) {
+        
+        tx.join(sender);
+        tx.join(receiver);
+        tx.join(amount);
+        tx.join(fees);
+        return (tx)
+        
+    } else if (ticker == "MIN" && sender.size() == config.min.pubkeysize && receiver.size() == config.min.pubkeysize && amount > 0 && fees >= config.min.minfees) {
+        
+        tx.join(sender);
+        tx.join(receiver);
+        tx.join(amount);
+        tx.join(fees);
+        return (tx)
+        
+    } else if (ticker == "QBASE" && sender.size() == config.moon.pubkeysize && receiver.size() == config.moon.pubkeysize && amount > 0 && fees >= config.moon.minfees) {
+        
+        tx.join(sender);
+        tx.join(receiver);
+        tx.join(amount);
+        tx.join(fees);
+        return (tx)
+        
+    } else if (ticker == "SPACE" && sender.size() == config.space.pubkeysize && receiver.size() == config.space.pubkeysize && amount > 0 && fees >= config.space.minfees) {
+        
+        tx.join(sender);
+        tx.join(receiver);
+        tx.join(amount);
+        tx.join(fees);
+        return (tx)
+        
+    } else if (ticker == "XMR" && sender.size() == config.xmr.pubkeysize && receiver.size() == config.xmr.pubkeysize && amount > 0 && fees >= config.xmr.minfees) {
+        
+        tx.join(sender);
+        tx.join(receiver);
+        tx.join(amount);
+        tx.join(fees);
         return (tx)
         
     };
