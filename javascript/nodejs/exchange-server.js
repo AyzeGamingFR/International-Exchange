@@ -2,7 +2,6 @@ const fs = require("fs");
 const http = require("http");
 const socket = require("socket.io");
 
-const logs = require("./logs.txt");
 const users_edb = require("./users.edb");
 
 const scrypt_a = require("./algos/scrypt.js");
@@ -490,86 +489,103 @@ function loadBalance(var ticker, var pubkey) {
     if (ticker == "ANTS" && pubkey.size() == config.ants.pubkeysize) {
         
         ants_wallet.send(`getbalance ${pubkey}`);
+        fs.writeFile("./logs.txt", `\nThe balance of the public address ${pubkey} in the FireAnts blockchain has been loaded !`, "utf-8");
         return (ants_wallet.recv())
         
     } else if (ticker == "BCH" && pubkey.size() == config.bch.pubkeysize) {
         
         bch_wallet.send(`getbalance ${pubkey}`);
+        fs.writeFile("./logs.txt", `\nThe balance of the public address ${pubkey} in the Bitcoin Cash blockchain has been loaded !`, "utf-8");
         return (bch_wallet.recv())
         
     } else if (ticker == "BTC" && pubkey.size() == config.btc.pubkeysize) {
         
         btc_wallet.send(`getbalance ${pubkey}`);
+        fs.writeFile("./logs.txt", `\nThe balance of the public address ${pubkey} in the Bitcoin blockchain has been loaded !`, "utf-8");
         return (btc_wallet.recv())
         
     } else if (ticker == "DASH" && pubkey.size() == config.dash.pubkeysize) {
         
         dash_wallet.send(`getbalance ${pubkey}`);
+        fs.writeFile("./logs.txt", `\nThe balance of the public address ${pubkey} in the Dash blockchain has been loaded !`, "utf-8");
         return (dash_wallet.recv())
         
     } else if (ticker == "DGB" && pubkey.size() == config.dgb.pubkeysize) {
         
         dgb_wallet.send(`getbalance ${pubkey}`);
+        fs.writeFile("./logs.txt", `\nThe balance of the public address ${pubkey} in the Digibyte blockchain has been loaded !`, "utf-8");
         return (dgb_wallet.recv())
         
     } else if (ticker == "DOGE" && pubkey.size() == config.doge.pubkeysize) {
         
         doge_wallet.send(`getbalance ${pubkey}`);
+        fs.writeFile("./logs.txt", `\nThe balance of the public address ${pubkey} in the Dogecoin blockchain has been loaded !`, "utf-8");
         return (doge_wallet.recv())
         
     } else if (ticker == "HTH" && pubkey.size() == config.hth.pubkeysize) {
         
         hth_wallet.send(`getbalance ${pubkey}`);
+        fs.writeFile("./logs.txt", `\nThe balance of the public address ${pubkey} in the Help The Homeless blockchain has been loaded !`, "utf-8");
         return (hth_wallet.recv())
         
     } else if (ticker == "LONG" && pubkey.size() == config.long.pubkeysize) {
         
         long_wallet.send(`getbalance ${pubkey}`);
+        fs.writeFile("./logs.txt", `\nThe balance of the public address ${pubkey} in the Longcoin blockchain has been loaded !`, "utf-8");
         return (long_wallet.recv())
         
     } else if (ticker == "LTC" && pubkey.size() == config.ltc.pubkeysize) {
         
         ltc_wallet.send(`getbalance ${pubkey}`);
+        fs.writeFile("./logs.txt", `\nThe balance of the public address ${pubkey} in the Litecoin blockchain has been loaded !`, "utf-8");
         return (ltc_wallet.recv())
         
     } else if (ticker == "MARS" && pubkey.size() == config.mars.pubkeysize) {
         
         mars_wallet.send(`getbalance ${pubkey}`);
+        fs.writeFile("./logs.txt", `\nThe balance of the public address ${pubkey} in the Marscoin blockchain has been loaded !`, "utf-8");
         return (mars_wallet.recv())
         
     } else if (ticker == "MEGA" && pubkey.size() == config.mega.pubkeysize) {
         
         mega_wallet.send(`getbalance ${pubkeysize}`);
+        fs.writeFile("./logs.txt", `\nThe balance of the public address ${pubkey} in the Megacoin blockchain has been loaded !`, "utf-8");
         return (mega_wallet.recv())
         
     } else if (ticker == "MIN" && pubkey.size() == config.min.pubkeysize) {
         
         min_wallet.send(`getbalance ${pubkeysize}`);
+        fs.writeFile("./logs.txt", `\nThe balance of the public address ${pubkey} in the Mincoin blockchain has been loaded !`, "utf-8");
         return (min_wallet.recv())
         
     } else if (ticker == "MOON" && pubkey.size() == config.moon.pubkeysize) {
         
         moon_wallet.send(`getbalance ${pubkey}`);
+        fs.writeFile("./logs.txt", `\nThe balance of the public address ${pubkey} in the Mooncoin blockchain has been loaded !`, "utf-8");
         return (moon_wallet.recv())
         
     } else if (ticker == "NEO" && pubkey.size() == config.neo.pubkeysize) {
         
         neo_wallet.send(`getbalance ${pubkey}`);
+        fs.writeFile("./logs.txt", `\nThe balance of the public address ${pubkey} in the Neo blockchain has been loaded !`, "utf-8");
         return (neo_wallet.recv())
         
     } else if (ticker == "NEURA" && pubkey.size() == config.neura.pubkeysize) {
         
         neura_wallet.send(`getbalance ${pubkey}`);
+        fs.writeFile("./logs.txt", `\nThe balance of the public address ${pubkey} in the Neuralium blockchain has been loaded !`, "utf-8");
         return (neura_wallet.recv())
         
     } else if (ticker == "XEM" && pubkey.size() == config.xem.pubkeysize) {
         
         xem_wallet.send(`getbalance ${pubkey}`);
+        fs.writeFile("./logs.txt", `\nThe balance of the public address ${pubkey} in the NEM blockchain has been loaded !`, "utf-8");
         return (xem_wallet.recv())
         
     } else if (ticker == "XMR" && pubkey.size() == config.xmr.pubkeysize) {
         
         xmr_wallet.send(`getbalance ${pubkey}`);
+        fs.writeFile("./logs.txt", `\nThe balance of the public address ${pubkey} in the Monero blockchain has been loaded !`, "utf-8");
         return (xmr_wallet.recv())
         
     };
