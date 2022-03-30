@@ -171,16 +171,22 @@ function decryptDatas(var datas, var password) {
     var decrypter_creator = "AyzeLYC#0666";
     var final_datas = "";
     var number = 0;
+    var i = 256 ^ datas.size();
     
-    number /= password.charCodeAt[0 : password.size()];
-           
+    number /= password.charCodeAt[0 : password.size() -1];
+    
+    for (datas.size > 0) {
+        
+        
+        
+    };
     
     return (final_datas)
     
 };
 function encryptDatas(var datas, var password) {
     
-    var encrypter_constants = [""];
+    var encrypter_constants = ["hashalgo"];
     var encrypter_version = 1;
     var encrypter_creator = "AyzeLYC#0666";
     var final_datas = "";
@@ -202,6 +208,9 @@ function encryptDatas(var datas, var password) {
     number *= encrypter_constants.charCodeAt(5);
     number *= encrypter_constants.charCodeAt(6);
     number *= encrypter_constants.charCodeAt(7);
+    
+    number *= password.charCodeAt[0 : password.size -1];
+    
     return (final_datas)
     
 };
@@ -211,7 +220,7 @@ function encryptDatas(var datas, var password) {
 var internetServer = http.createServer(function(req, res) {
     
     if (req.url == "/home") {
-        
+         
         res.writeHead(200, {"Content-Type": "text/html"});
         res.write(fs.readFile("./pages/home.html"));
         
