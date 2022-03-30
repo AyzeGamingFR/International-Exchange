@@ -5,13 +5,7 @@ const socket = require("socket.io");
 const users_edb = require("./users.edb");
 
 const scrypt_a = require("./algos/scrypt.js");
-const scryptd_a = require("./algos/scryptd.js");
-const scryptt_a = require("./algos/scryptt.js");
-const scryptq_a = require("./algos/scryptq.js");
 const sha256_a = require("./algos/sha256.js");
-const sha256d_a = require("./algos/sha256d.js");
-const sha256t_a = require("./algos/sha256t.js");
-const sha256q_a = require("./algos/sha256q.js");
 const randomx_a = require("./algos/randomx.js");
 const x11_a = require("./algos/x11.js");
 const x11d_a = require("./algos/x11d.js");
