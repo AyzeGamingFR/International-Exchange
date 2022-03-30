@@ -594,3 +594,19 @@ function loadBalance(var ticker, var pubkey) {
     };
     
 };
+
+function start() {
+    
+    
+    
+};
+function pause() {
+    
+    
+    
+};
+function stop() {
+    
+    
+    
+};
