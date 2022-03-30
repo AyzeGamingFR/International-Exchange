@@ -8,20 +8,11 @@ const scrypt_a = require("./algos/scrypt.js");
 const sha256_a = require("./algos/sha256.js");
 const randomx_a = require("./algos/randomx.js");
 const x11_a = require("./algos/x11.js");
-const x11d_a = require("./algos/x11d.js");
-const x11t_a = require("./algos/x11t.js");
-const x11q_a = require("./algos/x11q.js");
 const x12_a = require("./algos/x12.js");
-const x12d_a = require("./algos/x12d.js");
-const x12t_a = require("./algos/x12t.js");
-const x12q_a = require("./algos/x12q.js");
 const x13_a = require("./algos/x13.js");
-const x13d_a = require("./algos/x13d.js");
-const x13t_a = require("./algos/x13t.js");
-const x13q_a = require("./algos/x13q.js");
 
 var cryptocurrencys_listed = ["ANTS", "BCH", "BTC", "DASH", "DGB", "DOGE", "HTH", "LTC", "MARS", "MEGA", "MOON", "MIN", "QBASE", "SPACE", "XMR"];
-var cryptocurrencys_listed_database = {
+var cryptocurrencys_listed_config = {
     
     "ANTS": {
         
@@ -597,16 +588,16 @@ function loadBalance(var ticker, var pubkey) {
 
 function start() {
     
-    
+    webserver.start();
     
 };
 function pause() {
     
-    
+    webserver.pause();
     
 };
 function stop() {
     
-    
+    webserver.stop();
     
 };
